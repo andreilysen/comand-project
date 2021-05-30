@@ -1,0 +1,151 @@
+@media screen and (max-width: 1279px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 93px 15px;
+    background: rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+    opacity: 1;
+    @include transition(opacity);
+
+    &--is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .mobile {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 250px;
+    height: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+    background-color: #e17992;
+    overflow: hidden;
+    @include transition(transform);
+
+    @media screen and (max-width: 1279px) {
+      right: 0;
+      transform: translateX(0);
+    }
+
+    .menu--is-hidden & {
+      @media screen and (max-width: 1279px) {
+        transform: translateX(100%);
+      }
+    }
+  }
+}
+
+.burger-menu {
+  position: relative;
+  z-index: 6;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.menu-nav {
+  @media screen and (min-width: 1280px) {
+    @include flex;
+  }
+}
+
+.menu-item:not(:last-child) {
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 23px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-right: 35px;
+  }
+}
+
+.menu-link {
+  position: relative;
+  @include font(700, 14px, 1.28, unset);
+  color: #ffffff;
+  @include transition(color);
+  @media screen and (min-width: 1280px) {
+    padding: 30px 0;
+    font-size: 16px;
+    line-height: 1.31;
+  }
+
+  &:hover,
+  &:focus {
+    color: #d41443;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+  }
+}
+
+.link-current {
+  color: #d41443;
+}
+
+.ham {
+  cursor: pointer;
+  transition: transform 400ms linear 800ms;
+  user-select: none;
+}
+
+.burger-menu.is-open {
+  position: fixed;
+  top: 10px;
+  right: 12px;
+
+  & .hamRotate {
+    transform: rotate(45deg);
+  }
+  & .hamRotate180 {
+    transform: rotate(180deg);
+  }
+
+  & .line {
+    stroke: #ffffff;
+  }
+
+  & .ham6 .top {
+    stroke-dashoffset: -132px;
+  }
+  & .ham6 .middle {
+    stroke-dashoffset: -71px;
+  }
+  & .ham6 .bottom {
+    stroke-dashoffset: -132px;
+  }
+}
+
+.line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #d41443;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.ham6 .top {
+  stroke-dasharray: 40 172;
+}
+.ham6 .middle {
+  stroke-dasharray: 40 111;
+}
+.ham6 .bottom {
+  stroke-dasharray: 40 172;
+}
