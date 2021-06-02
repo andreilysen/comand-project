@@ -1,13 +1,13 @@
 {
-  "name": "parcel-project-template",
+  "name": "team-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://andreilysen.github.io/parcel-project-template",
+  "homepage": "https://andreilysen.github.io/team-project",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html",
-    "predeploy": "npm run build -- --public-url /parcel-project-template/",
+    "predeploy": "npm run build -- --public-url /team-project/",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
